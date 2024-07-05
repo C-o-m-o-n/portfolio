@@ -70,7 +70,7 @@ export default function Home() {
         transition={{ duration: 0.5 }}
         className="text-4xl font-bold mb-4 font-mono"
       >
-        Hello, <span className="text-[teal]">I'm Collins</span>. Welcome to my Portfolio
+        Hello, <span className="text-[teal]">I&apos;m Collins</span>. Welcome to my Portfolio
       </motion.h1>
       <motion.h2
         initial={{ opacity: 0, x: -50 }}
@@ -111,7 +111,7 @@ export default function Home() {
         className={`flex items-center gap-4 px-4 py-2 bg-slate-900
           float-end text-white rounded-lg ${!selectedOption ? 'opacity-50 cursor-not-allowed' : 'bg-[#300a5c] hover:bg-slate-900'
           }`}>
-        Let's Go! <FaArrowRight />
+        Let&apos;s Go! <FaArrowRight />
       </motion.button>
 
 
