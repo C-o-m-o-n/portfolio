@@ -70,7 +70,7 @@ export default function Home() {
         transition={{ duration: 0.5 }}
         className="text-4xl font-bold mb-4 font-mono"
       >
-        Hello, <span className="text-[teal]">I&apos;m Collins</span>. Welcome to my Portfolio
+        Hello, <span className="text-[green]">I&apos;m Collins</span>. Welcome to my Portfolio
       </motion.h1>
       <motion.h2
         initial={{ opacity: 0, x: -50 }}
@@ -94,7 +94,7 @@ export default function Home() {
               }`}
           >
             {option.icon}
-            <h1 className="font-bold text-2xl text-center underline m-2 font-mono text-[teal]">{option.title}</h1>
+            <h1 className="font-bold text-2xl text-center underline m-2 font-mono text-[green]">{option.title}</h1>
 
             <p className="text-center font-mono">{option.body}</p>
 
