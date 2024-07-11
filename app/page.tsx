@@ -14,6 +14,7 @@ import { motion } from 'framer-motion';
 export default function Home() {
 
   const [selectedOption, setSelectedOption] = useState<string>();
+  const [isDown, setIsDown] = useState(false)
   const router = useRouter();
 
   type optionType = {
@@ -31,6 +32,16 @@ export default function Home() {
     if (selectedOption) {
       router.push(selectedOption); // Replace with your next page route
     }
+  };
+
+  const handleScrollUp = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsDown(!isDown)
+  };
+
+  const handleScrollDown = () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    setIsDown(!isDown)
   };
 
   let options = [
@@ -62,6 +73,7 @@ export default function Home() {
   ]
 
   return (
+    <>
     <main className="min-h-screen p-4 md:p-12 lg:p-24">
 
       <motion.h1
@@ -113,6 +125,25 @@ export default function Home() {
           }`}>
         Let&apos;s Go! <FaArrowRight />
       </motion.button>
+
+      {/* <div className="fixed bottom-4 left-[50%] flex flex-col space-y-2">
+        {isDown ? (
+<button
+          onClick={handleScrollUp}
+          className="px-4 py-2 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-700"
+        >
+          Go Back Up
+        </button>
+        ) :  (
+<button
+          onClick={handleScrollDown}
+          className="px-4 py-2 bg-[#230842] text-white rounded-full shadow-lg hover:bg-[#3f4444] "
+        >
+          Explore  me
+        </button>
+        )}
+      </div> */}
     </main>
+        </>
   );
 }
