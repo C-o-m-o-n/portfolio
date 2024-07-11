@@ -78,7 +78,7 @@ export default function Home() {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="text-2xl mb-8 font-mono"
       >
-        What brings you to here?
+        What brings you here?
       </motion.h2>
 
       <motion.div initial={{ opacity: 0, x: -50 }}
@@ -89,14 +89,14 @@ export default function Home() {
           <div
             key={index}
             onClick={() => handleOptionClick(option)}
-            className={`cursor-pointer p-6 border border-[#28084d]
-               bg-[#230842] rounded-lg shadow-md hover:bg-slate-900 ${selectedOption === option.page ? 'border-gray-500' : ''
+            className={`cursor-pointer p-6 border dark:border-[#28084d]
+             bg-[#d8e1ec] dark:bg-[#230842] rounded-lg shadow-md hover:bg-[#3f4444]  ${selectedOption === option.page ? 'border-[#28084d] dark:border-white' : ''
               }`}
           >
             {option.icon}
             <h1 className="font-bold text-2xl text-center underline m-2 font-mono text-[green]">{option.title}</h1>
 
-            <p className="text-center font-mono">{option.body}</p>
+            <p className="text-center dark:text-[#d8e1ec] hover:text-[#d8e1ec] font-mono">{option.body}</p>
 
           </div>
         ))}
@@ -109,13 +109,10 @@ export default function Home() {
         onClick={handleNextClick}
         disabled={!selectedOption}
         className={`flex items-center gap-4 px-4 py-2 bg-slate-900
-          float-end text-white rounded-lg ${!selectedOption ? 'opacity-50 cursor-not-allowed' : 'bg-[#300a5c] hover:bg-slate-900'
+          float-end text-white rounded-lg ${!selectedOption ? 'opacity-50 cursor-not-allowed' : 'bg-[#230842] hover:bg-[#3f4444] '
           }`}>
         Let&apos;s Go! <FaArrowRight />
       </motion.button>
-
-
-
     </main>
   );
 }
