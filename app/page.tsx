@@ -7,14 +7,20 @@ import { FaArrowRight } from "react-icons/fa6";
 import { LiaPeopleCarrySolid } from "react-icons/lia";
 import { SiBuymeacoffee } from "react-icons/si";
 import { BsPersonWorkspace } from "react-icons/bs";
-import { ReactElement, SetStateAction, useState } from 'react';
+import { ReactElement, SetStateAction, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import ScrollToTop from "react-scroll-to-top";
+
 
 export default function Home() {
 
   const [selectedOption, setSelectedOption] = useState<string>();
-  const [isDown, setIsDown] = useState(false)
+  const [isDown, setIsDown] = useState<boolean>(false)
+  // const [isScrollingDown, setIsScrollingDown] = useState<boolean>(false);
+
+  const [prevScrollPos, setPrevScrollPos] = useState<number>(0);
+
   const router = useRouter();
 
   type optionType = {
@@ -24,6 +30,20 @@ export default function Home() {
     icon: ReactElement
   }
 
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollPos]);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+    setIsDown(currentScrollPos > prevScrollPos);
+    setPrevScrollPos(currentScrollPos);
+  };
+  
   const handleOptionClick = (option: optionType) => {
     setSelectedOption(option.page);
   };
@@ -36,6 +56,7 @@ export default function Home() {
 
   const handleScrollUp = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    
     setIsDown(!isDown)
   };
 
@@ -69,81 +90,84 @@ export default function Home() {
       page: "https://buymeacoffee.com/comon",
       body: "I saw your work and boy, you are not that bad :). Let me buy you a coffee!!",
       icon: <SiBuymeacoffee className="text-center" size={24} />
-    }
+    },
+
   ]
 
   return (
     <>
-    <main className="min-h-screen p-4 md:p-12 lg:p-24">
+      <main className="min-h-screen p-4 md:p-12 lg:p-24">
 
-      <motion.h1
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-4xl font-bold mb-4 font-mono"
-      >
-        Hello, <span className="text-[green]">I&apos;m Collins</span>. Welcome to my Portfolio
-      </motion.h1>
-      <motion.h2
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="text-2xl mb-8 font-mono"
-      >
-        What brings you here?
-      </motion.h2>
-
-      <motion.div initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        {options.map((option, index) => (
-          <div
-            key={index}
-            onClick={() => handleOptionClick(option)}
-            className={`cursor-pointer p-6 border dark:border-[#28084d]
-             bg-[#d8e1ec] dark:bg-[#230842] rounded-lg shadow-md hover:bg-[#3f4444]  ${selectedOption === option.page ? 'border-[#28084d] dark:border-white' : ''
-              }`}
+        <div>
+          <motion.h1
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl font-bold mb-4 font-mono">
+            Hello, <span className="text-[green]">I&apos;m Collins Omondi.</span> I'm a software developer based in Kenya
+          </motion.h1>
+          <motion.h2
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-2xl mb-8 font-mono"
           >
-            {option.icon}
-            <h1 className="font-bold text-2xl text-center underline m-2 font-mono text-[green]">{option.title}</h1>
+            What brings you here?
+          </motion.h2>
+        </div>
 
-            <p className="text-center dark:text-[#d8e1ec] hover:text-[#d8e1ec] font-mono">{option.body}</p>
+        <motion.div initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          {options.map((option, index) => (
+            <div
+              key={index}
+              onClick={() => handleOptionClick(option)}
+              className={`cursor-pointer p-6 border dark:border-[#28084d]
+             bg-[#d8e1ec] dark:bg-[#230842] rounded-lg shadow-md hover:bg-[#3f4444]  ${selectedOption === option.page ? 'border-[#28084d] dark:border-white' : ''
+                }`}>
+              {option.icon}
+              <h1 className="font-bold text-2xl text-center underline m-2 font-mono text-[green]">{option.title}</h1>
 
-          </div>
-        ))}
-      </motion.div>
-      <motion.button
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, delay: 0.8 }}
+              <p className="text-center dark:text-[#d8e1ec] hover:text-[#d8e1ec] font-mono">{option.body}</p>
 
-        onClick={handleNextClick}
-        disabled={!selectedOption}
-        className={`flex items-center gap-4 px-4 py-2 bg-slate-900
+            </div>
+          ))}
+        </motion.div>
+        <motion.button
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+
+          onClick={handleNextClick}
+          disabled={!selectedOption}
+          className={`flex items-center gap-4 px-4 py-2 bg-slate-900
           float-end text-white rounded-lg ${!selectedOption ? 'opacity-50 cursor-not-allowed' : 'bg-[#230842] hover:bg-[#3f4444] '
-          }`}>
-        Let&apos;s Go! <FaArrowRight />
-      </motion.button>
+            }`}>
+          Let&apos;s Go! <FaArrowRight />
+        </motion.button>
+{/*
+        <div className="fixed bottom-4 left-0 md:left-[50%] flex flex-col space-y-2">
+          {isDown ? (
+            <button
+              onClick={handleScrollUp}
+              className="px-4 py-2 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-700"
+            >
+              Go Back Up
+            </button>
+          ) : (
+            <button
+              onClick={handleScrollDown}
+              className="px-4 py-2 bg-[#230842] text-white rounded-full shadow-lg hover:bg-[#3f4444] "
+            >
+              Explore  me
+            </button>
+          )}
+        </div>
 
-      {/* <div className="fixed bottom-4 left-[50%] flex flex-col space-y-2">
-        {isDown ? (
-<button
-          onClick={handleScrollUp}
-          className="px-4 py-2 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-700"
-        >
-          Go Back Up
-        </button>
-        ) :  (
-<button
-          onClick={handleScrollDown}
-          className="px-4 py-2 bg-[#230842] text-white rounded-full shadow-lg hover:bg-[#3f4444] "
-        >
-          Explore  me
-        </button>
-        )}
-      </div> */}
-    </main>
-        </>
+          <ScrollToTop smooth /> */}
+      </main>
+    </>
   );
 }
