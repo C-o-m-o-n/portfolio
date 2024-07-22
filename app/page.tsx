@@ -1,6 +1,5 @@
 "use client"
 
-
 import Image from "next/image";
 import { RiUserSearchLine } from "react-icons/ri";
 import { FaArrowRight } from "react-icons/fa6";
@@ -10,15 +9,14 @@ import { BsPersonWorkspace } from "react-icons/bs";
 import { ReactElement, SetStateAction, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import ScrollToTop from "react-scroll-to-top";
-
+import { FaImages, FaArrowDown, FaArrowUp, FaLinkedin, FaGithub, } from "react-icons/fa";
+import { FaHashnode } from "react-icons/fa6";
 
 export default function Home() {
 
   const [selectedOption, setSelectedOption] = useState<string>();
   const [isDown, setIsDown] = useState<boolean>(false)
   // const [isScrollingDown, setIsScrollingDown] = useState<boolean>(false);
-
   const [prevScrollPos, setPrevScrollPos] = useState<number>(0);
 
   const router = useRouter();
@@ -29,7 +27,6 @@ export default function Home() {
     body: string
     icon: ReactElement
   }
-
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -43,7 +40,7 @@ export default function Home() {
     setIsDown(currentScrollPos > prevScrollPos);
     setPrevScrollPos(currentScrollPos);
   };
-  
+
   const handleOptionClick = (option: optionType) => {
     setSelectedOption(option.page);
   };
@@ -56,7 +53,7 @@ export default function Home() {
 
   const handleScrollUp = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    
+
     setIsDown(!isDown)
   };
 
@@ -125,7 +122,7 @@ export default function Home() {
               key={index}
               onClick={() => handleOptionClick(option)}
               className={`cursor-pointer p-6 border dark:border-[#28084d]
-             bg-[#d8e1ec] dark:bg-[#230842] rounded-lg shadow-md hover:bg-[#3f4444]  ${selectedOption === option.page ? 'border-[#28084d] dark:border-white' : ''
+             bg-[#d8e1ec] dark:bg-[#230842] rounded-lg shadow-md hover:bg-[#4a108b]  ${selectedOption === option.page ? 'border-[#28084d] dark:border-white' : ''
                 }`}>
               {option.icon}
               <h1 className="font-bold text-2xl text-center underline m-2 font-mono text-[green]">{option.title}</h1>
@@ -135,38 +132,77 @@ export default function Home() {
             </div>
           ))}
         </motion.div>
-        <motion.button
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
 
-          onClick={handleNextClick}
-          disabled={!selectedOption}
-          className={`flex items-center gap-4 px-4 py-2 bg-slate-900
-          float-end text-white rounded-lg ${!selectedOption ? 'opacity-50 cursor-not-allowed' : 'bg-[#230842] hover:bg-[#3f4444] '
-            }`}>
-          Let&apos;s Go! <FaArrowRight />
-        </motion.button>
-{/*
-        <div className="fixed bottom-4 left-0 md:left-[50%] flex flex-col space-y-2">
-          {isDown ? (
-            <button
-              onClick={handleScrollUp}
-              className="px-4 py-2 bg-green-500 text-white rounded-full shadow-lg hover:bg-green-700"
-            >
-              Go Back Up
-            </button>
-          ) : (
+        <div className="grid grid-cols-2  gap-16 w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full">
+            {/* <div className="md:left-[50%] flex flex-col space-y-2">
+              {isDown ? (
+                <button
+                  onClick={handleScrollUp}
+                  className=" p-2 bg-[#230842] text-white rounded-full shadow-lg hover:bg-[#4a108b]">
+                  <FaArrowUp />
+                </button>
+              ) : (
+                <button
+                  onClick={handleScrollDown}
+                  className=" p-2 bg-[#230842] text-white rounded-full shadow-lg hover:bg-[#4a108b] "
+                >
+                  <FaArrowDown />
+                </button>
+              )}
+            </div> */}
+            <a href="#">
             <button
               onClick={handleScrollDown}
-              className="px-4 py-2 bg-[#230842] text-white rounded-full shadow-lg hover:bg-[#3f4444] "
-            >
-              Explore  me
+              className="flex justify-center items-center gap-2 px-4 py-2 bg-[#230842]
+               text-white rounded-full shadow-lg hover:bg-[#4a108b] ">
+              <FaImages />
+              <span className="hidden md:block">Projects</span>
             </button>
-          )}
+            </a>
+
+            <a href="https://https://comon.hashnode.dev/">
+            <button
+              className="flex justify-center items-center gap-2 p-2 bg-[#230842] text-white rounded-full shadow-lg hover:bg-[#4a108b] ">
+              <FaHashnode />
+              <span className="hidden md:block">Blog</span>
+            </button>
+            </a>
+
+            <a href="https://github.com/c-o-m-o-n">
+            <button
+              className="flex justify-center items-center gap-2 p-2 bg-[#230842] text-white rounded-full shadow-lg hover:bg-[#4a108b] ">
+              <FaGithub />
+              <span className="hidden md:block">Github</span>
+            </button>
+            </a>
+
+            <a href="https://linkedin.com/in/c-o-m-o-n">
+            <button
+              className="flex justify-center items-center gap-2 p-2 bg-[#230842] text-white rounded-full shadow-lg hover:bg-[#4a108b] ">
+              <FaLinkedin />
+              <span className="hidden md:block">LinkedIn</span>
+            </button>
+            </a>
+
+          </div>
+
+          <div>
+            <div className="hidden md:block"></div>
+          <motion.button
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+            onClick={handleNextClick}
+            disabled={!selectedOption}
+            className={`flex items-center gap-4 px-4 py-2 bg-slate-900
+          float-end text-white rounded-lg ${!selectedOption ? 'opacity-50 cursor-not-allowed' : 'bg-[#230842] hover:bg-[#3f4444] '
+              }`}>
+            Let&apos;s Go! <FaArrowRight />
+          </motion.button>
+          </div>
         </div>
 
-          <ScrollToTop smooth /> */}
       </main>
     </>
   );
