@@ -133,7 +133,9 @@ export default function Home() {
           ))}
         </motion.div>
 
-        <div className="grid grid-cols-2  gap-16 w-full">
+        <motion.div initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }} className="grid grid-cols-2  gap-16 w-full">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full">
             {/* <div className="md:left-[50%] flex flex-col space-y-2">
               {isDown ? (
@@ -151,7 +153,7 @@ export default function Home() {
                 </button>
               )}
             </div> */}
-            <a href="#">
+            <a href="/showcase">
             <button
               onClick={handleScrollDown}
               className="flex justify-center items-center gap-2 px-4 py-2 bg-[#230842]
@@ -201,7 +203,7 @@ export default function Home() {
             Let&apos;s Go! <FaArrowRight />
           </motion.button>
           </div>
-        </div>
+        </motion.div>
 
       </main>
     </>
