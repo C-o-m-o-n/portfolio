@@ -1,22 +1,20 @@
 "use client"
 
-import Image from "next/image";
 import { RiUserSearchLine } from "react-icons/ri";
 import { FaArrowRight } from "react-icons/fa6";
 import { LiaPeopleCarrySolid } from "react-icons/lia";
 import { SiBuymeacoffee } from "react-icons/si";
 import { BsPersonWorkspace } from "react-icons/bs";
-import { ReactElement, SetStateAction, useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { FaImages, FaArrowDown, FaArrowUp, FaLinkedin, FaGithub, } from "react-icons/fa";
+import { FaImages, FaLinkedin, FaGithub, } from "react-icons/fa";
 import { FaHashnode } from "react-icons/fa6";
 
 export default function Home() {
 
   const [selectedOption, setSelectedOption] = useState<string>();
   const [isDown, setIsDown] = useState<boolean>(false)
-  // const [isScrollingDown, setIsScrollingDown] = useState<boolean>(false);
   const [prevScrollPos, setPrevScrollPos] = useState<number>(0);
 
   const router = useRouter();
