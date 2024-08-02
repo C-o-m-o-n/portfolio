@@ -12,10 +12,11 @@
     "@tawk.to/tawk-messenger-react": "^2.0.2",
     "framer-motion": "^11.2.13",
     "next": "14.2.4",
-    "react": "^18",
+    "react": "^18.3.1",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
-    "react-scroll-to-top": "^3.0.0"
+    "react-scroll-to-top": "^3.0.0",
+    "resend": "^3.5.0"
   },
   "devDependencies": {
     "@types/node": "^20",

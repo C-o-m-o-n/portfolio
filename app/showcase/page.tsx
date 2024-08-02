@@ -36,15 +36,6 @@ export default function Showcase() {
     setPrevScrollPos(currentScrollPos);
   };
 
-  const handleOptionClick = (option: optionType) => {
-    setSelectedOption(option.link);
-  };
-
-  const handleNextClick = () => {
-    if (selectedOption) {
-      router.push(selectedOption); // Replace with your next page route
-    }
-  };
 
   const handleScrollUp = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -58,30 +49,55 @@ export default function Showcase() {
   };
 
 let options = [
-    {
-      title: "Friends of the people DAO serer",
-      link: "https://github.com/Friendsofthepeople/django-recall-server",
-      body: "A Django server for managing the verification of constituents, publishing of representative information, and signing to recall them.",
-      image: "https://github.com/Friendsofthepeople/django-recall-server/raw/main/assets/images/Parliament.png"
-    },
+  {
+    title: "Uamuzi Foundation",
+    link: "https://uamuzi.org",
+    body: "Africa's next generation of innovators with STEAM education",
+    image: "https://raw.githubusercontent.com/C-o-m-o-n/image-archive/main/uamuzi.png?token=GHSAT0AAAAAACUCWTTMPRLNYAWSPEBHEZVOZVMS36Q"
+  },
+
+  {
+    title: "Handz-on Africa",
+    link: "https://handzonafrica.org",
+    body: "Africa's next generation of innovators with STEAM education",
+    image: "https://raw.githubusercontent.com/C-o-m-o-n/image-archive/main/handzonafrica.png?token=GHSAT0AAAAAACUCWTTNOFQMQWYJP5PHI3JWZVMTEDA"
+  },
     {
         title: "Imagisha",
         link: "https://imagisha.vercel.app/",
         body: "an AI-powered image generation and and transformation platform",
-        image: "https://github.com/C-o-m-o-n/imagisha/blob/main/public/imagisha-icon.png?raw=true"
+        image: "https://raw.githubusercontent.com/C-o-m-o-n/image-archive/main/imagisha.png?token=GHSAT0AAAAAACUCWTTMSQESC7JS4UJEB6WIZVMTIYA"
       },
     {
         title: "Jumbo Movies",
         link: "https://jumbo-filmz.vercel.app/",
         body: "Get Unlimited movies, Series and more",
-        image: "https://github.com/C-o-m-o-n/jumbo-filmz/blob/main/public/jumbofilmz.jpeg?raw=true"
+        image: "https://raw.githubusercontent.com/C-o-m-o-n/image-archive/main/jumbo-filmz.png?token=GHSAT0AAAAAACUCWTTMSHKSSWPPCXRB4JZGZVMTIEA"
       },
 
       {
-        title: "Jumbo Movies",
-        link: "blood-bank-tknp.onrender.com/",
+        title: "Online Blood Bank",
+        link: "https://blood-bank-tknp.onrender.com/",
         body: "This is an open-source initiative aimed at promoting blood donation and saving lives through a user-friendly website.",
-        image: "https://github.com/C-o-m-o-n/Blood-bank-tknp/blob/main/static/images/blood-1.jpg?raw=true"
+        image: "https://raw.githubusercontent.com/C-o-m-o-n/image-archive/main/blood-bank.png?token=GHSAT0AAAAAACUCWTTMZVOQK3XJHZ7TRXPYZVMTKDA"
+      },
+      {
+        title: "Friends of the people DAO serer",
+        link: "https://github.com/Friendsofthepeople/django-recall-server",
+        body: "A Django server for managing the verification of constituents, publishing of representative information, and signing to recall them.",
+        image: "https://github.com/Friendsofthepeople/django-recall-server/raw/main/assets/images/Parliament.png"
+      },
+      {
+        title: "Hippo Riders",
+        link: "https://hippo-riders.vercel.app",
+        body: "Travel, sunset & hippos. Tour guide within the Western Kenyan region, situated along the shores of Lake Victoria.",
+        image: "https://raw.githubusercontent.com/C-o-m-o-n/image-archive/main/hippo-riders.png?token=GHSAT0AAAAAACUCWTTMPKI23KU6COJDPEIQZVMTNHQ"
+      },
+      {
+        title: "AIDA Prompt Engeneering Web Client",
+        link: "https://aidaweb.jprq.app",
+        body: "This is the web interface for the AIDA project. It is a web application that allows users to interact with the AIDA system and engage in awesome conversations with the smart AIDA bot.",
+        image: "https://raw.githubusercontent.com/C-o-m-o-n/image-archive/main/aida-web.png?token=GHSAT0AAAAAACUCWTTNHDYLKPX4HG4AEPBAZVMTQGA"
       },
 ]
 
@@ -102,7 +118,7 @@ let options = [
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-2xl mb-8 font-mono"
               >
-                See me  from my <a className="underline" href="https://github.com/C-o-m-o-n/">github</a> account
+                See more  from my <a className="underline" href="https://github.com/C-o-m-o-n/">github</a> account
               </motion.h2>
             </div>
     
@@ -111,36 +127,24 @@ let options = [
               transition={{ duration: 0.5, delay: 0.6 }}
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
               {options.map((option, index) => (
-                <div
+                <a
                   key={index}
-                  onClick={() => handleOptionClick(option)}
-                  className={`cursor-pointer p-6 border dark:border-[#28084d]
-                 bg-[#d8e1ec] dark:bg-[#230842] rounded-lg shadow-md hover:bg-[#4a108b]
-                   ${selectedOption === option.link ? 'border-[#28084d] dark:border-white' : ''
-                    }`}>
+                  href={option.link}
+                  target="_blank"
+                  className="cursor-pointer border dark:border-[#28084d]
+                 bg-[#d8e1ec] dark:bg-[#230842] rounded-lg shadow-md hover:bg-[#4a108b]">
                    <Image src={option.image} alt={option.title} width={400} height={200} className="rounded"/>
                   <h3 className="font-bold text-center underline m-2
                    font-mono text-[green]">{option.title}</h3>
                   <p className="text-center dark:text-[#d8e1ec] hover:text-[#d8e1ec] font-mono">{option.body}</p>
     
-                </div>
+                </a>
               ))}
             </motion.div>
     
-    
               <div>
                 <div className="hidden md:block"></div>
-              <motion.button
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                onClick={handleNextClick}
-                disabled={!selectedOption}
-                className={`flex items-center gap-4 px-4 py-2 bg-slate-900
-              float-end text-white rounded-lg ${!selectedOption ? 'opacity-50 cursor-not-allowed' : 'bg-[#230842] hover:bg-[#3f4444] '
-                  }`}>
-                Let&apos;s Go! <FaArrowRight />
-              </motion.button>
+             
               </div>
     
           </main>
