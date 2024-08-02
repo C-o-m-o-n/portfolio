@@ -1,9 +1,7 @@
 
 "use client"
 
-import Image from "next/image";
-import { FaArrowRight } from "react-icons/fa6";
-import { ReactElement, SetStateAction, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 
@@ -53,33 +51,33 @@ let options = [
     title: "Uamuzi Foundation",
     link: "https://uamuzi.org",
     body: "Africa's next generation of innovators with STEAM education",
-    image: "https://raw.githubusercontent.com/C-o-m-o-n/image-archive/main/uamuzi.png?token=GHSAT0AAAAAACUCWTTMPRLNYAWSPEBHEZVOZVMS36Q"
+    image: '/images/uamuzi.png',
   },
 
   {
     title: "Handz-on Africa",
     link: "https://handzonafrica.org",
     body: "Africa's next generation of innovators with STEAM education",
-    image: "https://raw.githubusercontent.com/C-o-m-o-n/image-archive/main/handzonafrica.png?token=GHSAT0AAAAAACUCWTTNOFQMQWYJP5PHI3JWZVMTEDA"
+    image: '/images/handz-on-africa.png',
   },
     {
         title: "Imagisha",
         link: "https://imagisha.vercel.app/",
         body: "an AI-powered image generation and and transformation platform",
-        image: "https://raw.githubusercontent.com/C-o-m-o-n/image-archive/main/imagisha.png?token=GHSAT0AAAAAACUCWTTMSQESC7JS4UJEB6WIZVMTIYA"
+        image: '/images/imagisha.png'
       },
     {
         title: "Jumbo Movies",
         link: "https://jumbo-filmz.vercel.app/",
         body: "Get Unlimited movies, Series and more",
-        image: "https://raw.githubusercontent.com/C-o-m-o-n/image-archive/main/jumbo-filmz.png?token=GHSAT0AAAAAACUCWTTMSHKSSWPPCXRB4JZGZVMTIEA"
+        image: '/images/jumbo-filmz.png',
       },
 
       {
         title: "Online Blood Bank",
         link: "https://blood-bank-tknp.onrender.com/",
         body: "This is an open-source initiative aimed at promoting blood donation and saving lives through a user-friendly website.",
-        image: "https://raw.githubusercontent.com/C-o-m-o-n/image-archive/main/blood-bank.png?token=GHSAT0AAAAAACUCWTTMZVOQK3XJHZ7TRXPYZVMTKDA"
+        image: '/images/blood-bank.png'
       },
       {
         title: "Friends of the people DAO serer",
@@ -91,13 +89,13 @@ let options = [
         title: "Hippo Riders",
         link: "https://hippo-riders.vercel.app",
         body: "Travel, sunset & hippos. Tour guide within the Western Kenyan region, situated along the shores of Lake Victoria.",
-        image: "https://raw.githubusercontent.com/C-o-m-o-n/image-archive/main/hippo-riders.png?token=GHSAT0AAAAAACUCWTTMPKI23KU6COJDPEIQZVMTNHQ"
+        image: '/images/hippo-riders.png'
       },
       {
         title: "AIDA Prompt Engeneering Web Client",
         link: "https://aidaweb.jprq.app",
         body: "This is the web interface for the AIDA project. It is a web application that allows users to interact with the AIDA system and engage in awesome conversations with the smart AIDA bot.",
-        image: "https://raw.githubusercontent.com/C-o-m-o-n/image-archive/main/aida-web.png?token=GHSAT0AAAAAACUCWTTNHDYLKPX4HG4AEPBAZVMTQGA"
+        image: '/images/aida-web.png'
       },
 ]
 
@@ -133,7 +131,7 @@ let options = [
                   target="_blank"
                   className="cursor-pointer border dark:border-[#28084d]
                  bg-[#d8e1ec] dark:bg-[#230842] rounded-lg shadow-md hover:bg-[#4a108b]">
-                   <Image src={option.image} alt={option.title} width={400} height={200} className="rounded"/>
+                   <img src={`${option.image}`} alt={option.title}  className="rounded w-full"/>
                   <h3 className="font-bold text-center underline m-2
                    font-mono text-[green]">{option.title}</h3>
                   <p className="text-center dark:text-[#d8e1ec] hover:text-[#d8e1ec] font-mono">{option.body}</p>
