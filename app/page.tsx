@@ -161,7 +161,7 @@ export default function Home() {
             </button>
             </a>
 
-            <a href="https://https://comon.hashnode.dev/">
+            <a href="https://comon.hashnode.dev/">
             <button
               className="flex justify-center items-center gap-2 p-2 bg-[#230842] text-white rounded-full shadow-lg hover:bg-[#4a108b] ">
               <FaHashnode />
