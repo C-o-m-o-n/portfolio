@@ -50,20 +50,20 @@ let options = [
   {
     title: "Uamuzi Foundation",
     link: "https://uamuzi.org",
-    body: "Africa's next generation of innovators with STEAM education",
+    body: "A social enterpise advocating for social justice with a specific focus on the youth, women and persons living with disabilities who deserve equal economic, political and social rights, while integrating technology and data.",
     image: '/images/uamuzi.png',
   },
 
   {
     title: "Handz-on Africa",
     link: "https://handzonafrica.org",
-    body: "Africa's next generation of innovators with STEAM education",
+    body: "Empower Africa's next generation of innovators with STEAM education",
     image: '/images/handz-on-africa.png',
   },
     {
         title: "Imagisha",
         link: "https://imagisha.vercel.app/",
-        body: "an AI-powered image generation and and transformation platform",
+        body: "An AI-powered image generation and and transformation platform",
         image: '/images/imagisha.png'
       },
     {
