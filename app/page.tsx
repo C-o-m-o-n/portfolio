@@ -99,7 +99,7 @@ export default function Home() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="text-4xl font-bold mb-4 font-mono">
-            Hello, <span className="text-[green]">I&apos;m Collins Omondi.</span> I&apos;m a software developer based in Kenya
+            Hello👋👋, <span className="text-[green] animate-ping">I&apos;m Collins Omondi.</span> I&apos;m a software developer based in Kenya
           </motion.h1>
           <motion.h2
             initial={{ opacity: 0, x: -50 }}
