@@ -71,11 +71,11 @@ export default function Home() {
     {
       title: "Need help with a project?",
       page: "/project",
-      body: "I need help with a project you've been woring on?",
+      body: "I need help with a project you've been working on?",
       icon: <BsPersonWorkspace className="text-center" size={24} />
     },
     {
-      title: "Collabotation",
+      title: "Collabotation?",
       page: "https://github.com/c-o-m-o-n",
       body: "Have an open source project that needs collaboration?",
       icon: <LiaPeopleCarrySolid className="text-center" size={24} />
@@ -83,7 +83,7 @@ export default function Home() {
     {
       title: "Buy me a coffee?",
       page: "https://buymeacoffee.com/comon",
-      body: "Want to buy me a coffie. That's nice of you 😊😊😊😊",
+      body: "Want to buy me a coffee. That's nice of you 😊😊😊😊",
       icon: <SiBuymeacoffee className="text-center" size={24} />
     },
 
