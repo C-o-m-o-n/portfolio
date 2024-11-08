@@ -62,28 +62,28 @@ export default function Home() {
 
   let options = [
     {
-      title: "I'm Hiring",
+      title: "Hiring?",
       page: "/hire",
-      body: "I have an open position at my company and I believe that you are the person I have been searching for",
+      body: "Searching for a potential person to hire?",
       icon: <RiUserSearchLine className="text-center" size={24} />
     },
 
     {
-      title: "I have a project for you",
+      title: "Need help with a project?",
       page: "/project",
-      body: "I need a website for my busines and I believe that you are the right person to work on it for me",
+      body: "I need help with a project you've been woring on?",
       icon: <BsPersonWorkspace className="text-center" size={24} />
     },
     {
       title: "Collabotation",
       page: "https://github.com/c-o-m-o-n",
-      body: "I have an open source project that I need help with. Do you mind helping me?",
+      body: "Have an open source project that needs collaboration?",
       icon: <LiaPeopleCarrySolid className="text-center" size={24} />
     },
     {
-      title: "Buy You a coffee",
+      title: "Buy me a coffee?",
       page: "https://buymeacoffee.com/comon",
-      body: "I saw your work and boy, you are not that bad :). Let me buy you a coffee!!",
+      body: "Want to buy me a coffie. That's nice of you 😊😊😊😊",
       icon: <SiBuymeacoffee className="text-center" size={24} />
     },
 
