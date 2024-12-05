@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { FiExternalLink } from "react-icons/fi";
 
 export default function Showcase() {
   const [selectedOption, setSelectedOption] = useState<string>();
@@ -111,7 +112,7 @@ export default function Showcase() {
 
   return (
     <>
-      <main className="min-h-screen p-4 md:p-12 lg:p-24">
+      <main className="min-h-screen p-4 ">
         <div>
           <motion.h1
             initial={{ opacity: 0, x: -50 }}
@@ -128,8 +129,8 @@ export default function Showcase() {
             className="text-2xl mb-8 font-mono"
           >
             See more from my{" "}
-            <a className="underline" href="https://github.com/C-o-m-o-n/">
-              github
+            <a className="underline text-blue-600" href="https://github.com/C-o-m-o-n/">
+              github <FiExternalLink className="inline" />
             </a>{" "}
             account
           </motion.h2>

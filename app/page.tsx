@@ -11,6 +11,7 @@ import { motion } from 'framer-motion';
 import { FaImages, FaLinkedin, FaGithub, } from "react-icons/fa";
 import { FaHashnode } from "react-icons/fa6";
 
+
 export default function Home() {
 
   const [selectedOption, setSelectedOption] = useState<string>();
@@ -195,9 +196,7 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.8 }}
             onClick={handleNextClick}
             disabled={!selectedOption}
-            className={`flex items-center gap-4 px-4 py-2 bg-slate-900
-          float-end text-white rounded-lg ${!selectedOption ? 'opacity-50 cursor-not-allowed' : 'bg-[#230842] hover:bg-[#3f4444] '
-              }`}>
+            className={`flex items-center gap-4 px-4 py-2 bg-slate-900 float-end text-white rounded-lg opacity-50 ${selectedOption ? 'bg-[#4a108b] hover:bg-[#3f4444] opacity-100 ' : 'cursor-not-allowed'}`}>
             Let&apos;s Go! <FaArrowRight />
           </motion.button>
           </div>

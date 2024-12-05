@@ -2,6 +2,7 @@ import { IoMail } from "react-icons/io5";
 import { MdOutlineMessage } from "react-icons/md";
 import Image from 'next/image'
 import { motion } from 'framer-motion';
+import { FiExternalLink } from "react-icons/fi";
 
 export default function Project() {
     return (
