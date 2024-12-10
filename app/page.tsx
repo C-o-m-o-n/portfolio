@@ -196,7 +196,7 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.8 }}
             onClick={handleNextClick}
             disabled={!selectedOption}
-            className={`flex items-center gap-4 px-4 py-2 bg-slate-900 float-end text-white rounded-lg opacity-50 ${selectedOption ? 'bg-[#4a108b] hover:bg-[#3f4444] opacity-100 ' : 'cursor-not-allowed'}`}>
+            className={`flex items-center gap-4 px-4 py-2 bg-slate-900 float-end text-white rounded-lg opacity-50 ${selectedOption ? 'bg-[purple] hover:bg-[#3f4444] opacity-100 ' : 'cursor-not-allowed'}`}>
             Let&apos;s Go! <FaArrowRight />
           </motion.button>
           </div>
